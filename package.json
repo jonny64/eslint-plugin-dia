@@ -1,0 +1,30 @@
+{
+  "name": "@jonny64/eslint-plugin-dia",
+  "version": "0.0.1",
+  "main": "index.js",
+  "peerDependencies": {
+    "eslint": "8.14.0"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonny64/eslint-plugin-dia.git"
+  },
+  "keywords": [
+    "eslint",
+    "dia.js"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jonny64/eslint-plugin-dia/issues"
+  },
+  "homepage": "https://github.com/jonny64/eslint-plugin-dia#readme",
+  "description": ""
+}
