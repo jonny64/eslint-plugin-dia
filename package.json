@@ -1,6 +1,6 @@
 {
   "name": "@jonny64/eslint-plugin-dia",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "index.js",
   "peerDependencies": {
     "eslint": "^8.14.0"
