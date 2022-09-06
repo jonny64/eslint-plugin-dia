@@ -12,8 +12,11 @@
     "eslint": "^8.23.0",
     "jest": "^29.0.2"
   },
+  "jest": {
+    "testMatch": ["**/*.spec.js"]
+  },
   "scripts": {
-    "test": "npx jest ./test"
+    "test": "jest --ci"
   },
   "repository": {
     "type": "git",
