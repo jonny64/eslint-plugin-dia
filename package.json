@@ -10,10 +10,12 @@
   },
   "devDependencies": {
     "eslint": "^8.23.0",
-    "jest": "^29.0.2"
+    "jest": "^27.5.1"
   },
   "jest": {
-    "testMatch": ["**/*.spec.js"]
+    "testMatch": [
+      "**/*.spec.js"
+    ]
   },
   "scripts": {
     "test": "jest --ci"
