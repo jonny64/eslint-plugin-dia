@@ -27,7 +27,7 @@ let en_unplural = function (s) {
 module.exports = {
     meta: {
         messages: {
-            no_ref_plural: 'id_${en_plural} identifiers are not allowed.',
+            no_ref_plural: 'id_${en_plural} column names are not allowed: "{{ name }}" ',
         },
     },
     create(context) {
@@ -37,7 +37,7 @@ module.exports = {
                     let t = node.name.split (/^(?:uu)?id_/) [1]
                     let t_single = en_unplural (t)
                     if (t != t_single) {
-                        context.report({ node, messageId: 'no_ref_plural' })
+                        context.report({ node, messageId: 'no_ref_plural', data: {name: node.name}})
                     }
                 }
             }
