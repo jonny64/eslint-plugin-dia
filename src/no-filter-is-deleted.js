@@ -8,11 +8,12 @@ module.exports = {
     create(context) {
         return {
             CallExpression (node) {
-                if (node.callee.property.name != 'add_vocabularies') return
+                if (node.callee.property && node.callee.property.name != 'add_vocabularies') return
                 let vocs = node.arguments [1]
                 if (!vocs) return
                 for (let i of vocs.properties || []) {
-                    if (!/^voc_/.test (i.key.name)) continue
+                    if (i.key && !/^voc_/.test (i.key.name)) continue
+                    if (!i.value) continue
                     for (let f of i.value.properties) {
                         if (/is_deleted\s*=\s*0/.test (f.value.raw)) {
                             context.report({ node, messageId: 'no_filter_is_deleted', data: {k: i.key.name, v: f.value.raw}})
