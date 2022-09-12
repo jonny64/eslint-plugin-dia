@@ -1,6 +1,6 @@
 let en_unplural = function (s) {
 
-    if (s.match (/(status|goods|nds|fias|address)$/)) return s
+    if (s.match (/(status|goods|nds|fias|address|gas)$/)) return s
 
     if (s.match (/^\w\ws$/)) return s
 

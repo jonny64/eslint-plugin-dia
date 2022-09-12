@@ -10,6 +10,7 @@ rt.run('no-ref-plural', no_ref_plural, {
         { code: `{uuid_fias     : 'uuid // Address'}` },
         { code: `{uuid_address  : 'uuid // Address'}` },
         { code: `{uuid_xks      : 'uuid // Some nitty-gritty abbreviation'}` },
+        { code: `{id_system_gas : 'int  // Gas system'}` },
     ],
     invalid: [
         {
