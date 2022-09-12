@@ -1,13 +1,15 @@
 let en_unplural = function (s) {
 
-    if (s.match (/(status|goods|nds)$/)) return s
+    if (s.match (/(status|goods|nds|fias|address)$/)) return s
+
+    if (s.match (/^\w\ws$/)) return s
 
     var table = [
         [/tives$/,          'tive'],
         [/ives$/,            'ife'],
         [/ves$/,               'f'],
         [/ies$/,               'y'],
-        [/ice$/,            'ouse'],
+        // [/ice$/,            'ouse'],
         [/men$/,             'man'],
         [/eet(h?)$/,       'oot$1'],
         [/(o|ch|sh|ss|x)es$/, '$1'],

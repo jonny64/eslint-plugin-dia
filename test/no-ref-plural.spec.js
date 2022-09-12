@@ -6,6 +6,10 @@ rt.run('no-ref-plural', no_ref_plural, {
         { code: `{id_priority : '(voc_priorities) // Priority'}` },
         { code: `{id_voc_nds  : '(voc_nds) // VAT'}` },
         { code: `{uuid_priority : '(voc_priorities) // Priority'}` },
+        { code: `{uuid_device   : 'uuid // Device'}` },
+        { code: `{uuid_fias     : 'uuid // Address'}` },
+        { code: `{uuid_address  : 'uuid // Address'}` },
+        { code: `{uuid_xks      : 'uuid // Some nitty-gritty abbreviation'}` },
     ],
     invalid: [
         {
