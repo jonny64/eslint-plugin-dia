@@ -11,6 +11,13 @@ rt.run('no-ref-plural', no_ref_plural, {
         { code: `{uuid_address  : 'uuid // Address'}` },
         { code: `{uuid_xks      : 'uuid // Some nitty-gritty abbreviation'}` },
         { code: `{id_system_gas : 'int  // Gas system'}` },
+        { code: `{uuid_basis    : 'uuid // Some basis'}` },
+        { code: `{uuid_out_gis  : 'uuid // Some gis'}` },
+        { code: `{uuid_class    : 'uuid // Some class'}` },
+        { code: `{uuid_some_res : 'uuid // Some resource'}` },
+        { code: `{uuid_some_news : 'uuid // Some news item'}` },
+        { code: `{uuid_xl_sheet : 'uuid // Some xl sheet'}` },
+        { code: `{uuid_vks      : 'uuid // Some vks'}` },
     ],
     invalid: [
         {
