@@ -24,6 +24,11 @@ rt.run('no-filter-is-deleted', no_filter_is_deleted, {
                 _fields: this.db.model.tables.tb_entities.columns,
             })
         `},
+        { code: `
+            add_vocabularies ({}, {
+                voc_nds: 1,
+            })
+        `},
     ],
     invalid: [
         {

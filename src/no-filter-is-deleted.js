@@ -14,6 +14,7 @@ module.exports = {
                 for (let i of vocs.properties || []) {
                     if (i.key && !/^voc_/.test (i.key.name)) continue
                     if (!i.value) continue
+                    if (!i.value.properties) continue
                     for (let f of i.value.properties) {
                         if (/is_deleted\s*=\s*0/.test (f.value.raw)) {
                             context.report({ node, messageId: 'no_filter_is_deleted', data: {k: i.key.name, v: f.value.raw}})
