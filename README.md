@@ -3,6 +3,7 @@
 | --- | ---
 | no-ref-plural  | id_${en_plural} identifiers are not allowed
 | no-filter-is-deleted  | filter.is_deleted are not allowed, please filter front side
+| no-column-width  | draw_table.columns.width is required at least for one column
 | no-mixed-column-width  | draw_table.columns.width mixed unit are not allowed
 
 see https://astexplorer.net for node tree
