@@ -2,7 +2,7 @@
 module.exports = {
     meta: {
         messages: {
-            no_column_width: 'draw_table.columns.width is required at least for one column: "{{list}}" ',
+            no_column_width: 'draw_table.columns.width is required at least for one column',
         },
     },
     create(context) {
@@ -35,7 +35,7 @@ module.exports = {
                     }
 
                     if (!list.length) {
-                        context.report({ node, messageId: 'no_column_width', data: {list}})
+                        context.report({ node, messageId: 'no_column_width'})
                     }
                 }
             }
