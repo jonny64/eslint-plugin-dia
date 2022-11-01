@@ -2,7 +2,7 @@
 module.exports = {
     meta: {
         messages: {
-            no_column_width: 'draw_table.columns.width is required at least for one column',
+            no_column_width: 'draw_table.columns.width is required for each column',
         },
     },
     create(context) {
@@ -25,17 +25,23 @@ module.exports = {
                     if (!i.value) continue
                     if (!i.value.elements) continue
 
-                    let list = []
                     for (let col of i.value.elements || []) {
+                        let is_ok = 0
                         for (let p of col.properties || []) {
-                            let w = get_literal (p, 'width')
-                            if (!w) continue
-                            list.push (w)
+                            if (get_literal (p, 'width')) {
+                                is_ok = 1
+                                break
+                            }
+                            let has_class = p.key && p.key.name === 'class' && p.value
+                            if (has_class) {
+                                is_ok = 1
+                                break
+                            }
                         }
-                    }
-
-                    if (!list.length) {
-                        context.report({ node, messageId: 'no_column_width'})
+                        if (!is_ok) {
+                            context.report({ node: col, messageId: 'no_column_width'})
+                            return
+                        }
                     }
                 }
             }

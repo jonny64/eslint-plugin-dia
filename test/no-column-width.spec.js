@@ -26,6 +26,23 @@ rt.run('no-column-width', no_column_width, {
                     ]
                 })
             ` },
+            {
+                code: `
+                    $el.draw_table ({
+                        columns: [
+                            {
+                                hideInColumnTitleRow: true,
+                                class: Slick.CheckboxSelectColumn,
+                            },
+                            {
+                                field   : 'label',
+                                name    : 'Наименование',
+                                width   : 50,
+                                filter  : {type: 'text', title: '[поиск...]'},
+                            },
+                        ]
+                    })
+            `},
     ],
     invalid: [
         {
@@ -46,6 +63,24 @@ rt.run('no-column-width', no_column_width, {
                             sortable: true,
                             filter: {type: 'checkboxes', title: '[поиск...]', op: 'is'},
                             voc: data.voc_md_kinds,
+                        },
+                    ]
+                })
+            `,
+            errors: [{ messageId: 'no_column_width' }],
+        },
+        {
+            code: `
+                $el.draw_table ({
+                    columns: [
+                        {
+                            hideInColumnTitleRow: true,
+                            class: Slick.CheckboxSelectColumn,
+                        },
+                        {
+                            field   : 'label',
+                            name    : 'Наименование',
+                            filter  : {type: 'text', title: '[поиск...]'},
                         },
                     ]
                 })
