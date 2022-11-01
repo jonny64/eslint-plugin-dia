@@ -1,6 +1,10 @@
 const { RuleTester } = require('eslint')
 const no_column_width = require('../src/no-column-width.js')
-const rt = new RuleTester()
+const rt = new RuleTester({
+    "parserOptions": {
+        "ecmaVersion": "2020"
+    }
+})
 rt.run('no-column-width', no_column_width, {
     valid: [
         {
@@ -40,6 +44,24 @@ rt.run('no-column-width', no_column_width, {
                                 width   : 50,
                                 filter  : {type: 'text', title: '[поиск...]'},
                             },
+                        ]
+                    })
+            `},
+            {
+                code: `
+                    $el.draw_table ({
+                        columns: [
+                            {
+                                field   : 'label',
+                                name    : 'Наименование',
+                                width   : 50,
+                                filter  : {type: 'text', title: '[поиск...]'},
+                            },
+                            ... [
+                                'label',
+                                'oktmo',
+                                'okato',
+                            ].map (f => to_log_column (f, data))
                         ]
                     })
             `},

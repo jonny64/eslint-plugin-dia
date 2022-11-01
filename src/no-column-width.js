@@ -26,6 +26,7 @@ module.exports = {
                     if (!i.value.elements) continue
 
                     for (let col of i.value.elements || []) {
+                        if (col.type !== 'ObjectExpression') continue
                         let is_ok = 0
                         for (let p of col.properties || []) {
                             if (get_literal (p, 'width')) {
