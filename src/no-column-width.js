@@ -25,7 +25,13 @@ module.exports = {
                     if (!i.value) continue
                     if (!i.value.elements) continue
 
-                    for (let col of i.value.elements || []) {
+                    let cols = i.value.elements || []
+
+                    if (cols.length == 1) {
+                        return
+                    }
+
+                    for (let col of cols) {
                         if (col.type !== 'ObjectExpression') continue
                         let is_ok = 0
                         for (let p of col.properties || []) {

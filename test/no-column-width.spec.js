@@ -65,6 +65,18 @@ rt.run('no-column-width', no_column_width, {
                         ]
                     })
             `},
+            {
+                code: `
+                    $el.draw_table ({
+                        columns: [
+                            {
+                                field   : 'label',
+                                name    : 'Наименование',
+                                filter  : {type: 'text', title: '[поиск...]'},
+                            },
+                        ]
+                    })
+            `},
     ],
     invalid: [
         {
