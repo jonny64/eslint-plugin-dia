@@ -2,23 +2,18 @@
   "name": "@jonny64/eslint-plugin-dia",
   "version": "0.0.13",
   "main": "index.js",
-  "peerDependencies": {
-    "eslint": "^8.14.0"
-  },
   "directories": {
     "test": "test"
   },
   "devDependencies": {
     "eslint": "<=7.32.0",
-    "jest": "^27.5.1"
+    "jasmine": "<=3.99.0"
   },
-  "jest": {
-    "testMatch": [
-      "**/*.spec.js"
-    ]
+  "spec_dir": {
+    "specDir": "test"
   },
   "scripts": {
-    "test": "jest --ci"
+    "test": "jasmine"
   },
   "repository": {
     "type": "git",
