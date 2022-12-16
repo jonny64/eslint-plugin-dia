@@ -27,15 +27,18 @@ function toBlocks(comments) {
 }
 
 function hasEmptyBody(program) {
-    return program.type === "Program" && program.body.length === 0;
+    return program.type === "Program" && program.body.length === 0
+        || program.body.length === 1 && program.body [0].type === "ExpressionStatement" && program.body [0].expression && program.body [0].expression.type === "Identifier"
 }
 
 function hasExpressionBody(program) {
+
     return (
         program.type === "Program"
         && program.body.every(
             (statement) =>
                 statement.type === "ExpressionStatement"
+                || statement.type === "CallExpression"
                 && isValidExpressionStatement(statement.expression)
         )
     )
@@ -49,6 +52,8 @@ function isValidExpressionStatement(node) {
         case "CallExpression":
         case "ObjectExpression":
         case "BinaryExpression":
+        case "VariableDeclaration":
+        case "ExpressionStatement":
             return true
     }
 
@@ -79,7 +84,7 @@ function wrapContent(content, node) {
 module.exports = {
     meta: {
         messages: {
-            no_commented_out_code: 'commented out code is forbidden',
+            no_commented_out_code: 'commented out code is forbidden "{{src}}"',
         },
     },
     create(context) {
@@ -92,23 +97,21 @@ module.exports = {
             Program () {
                 const comments = context.getSourceCode().getAllComments()
                 const blocks = toBlocks (comments)
-
                 for (const block of blocks) {
 
                     const { content, loc } = block
 
                     try {
                         const program = parse(content, parserOptions)
-                        // if (
-                        //     !hasEmptyBody(program)
-                        //     && !hasExpressionBody(program)
-                        //     && !hasLabeledStatementBody(program)
-                        // ) {
+                        if (
+                            !hasEmptyBody(program)
+                        ) {
                             context.report({
                                 loc,
                                 messageId: "no_commented_out_code",
+                                data: {src: content},
                             })
-                        // }
+                        }
                         continue
                     } catch (x) {
                         // is not code comment
@@ -126,6 +129,7 @@ module.exports = {
                             context.report({
                                 loc,
                                 messageId: "no_commented_out_code",
+                                data: {src: content},
                             })
                         } catch (x) {
                             // is not code comment

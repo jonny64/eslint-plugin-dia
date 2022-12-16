@@ -16,6 +16,15 @@ rt.run('no-commented-out-code', no_commented_out_code, {
                 voc_nds: 1,
             })
         `},
+        {
+            code: `
+                var y = [
+                    {},
+                    // OR
+                    {},
+                ]
+            `
+        },
     ],
     invalid: [
         {
