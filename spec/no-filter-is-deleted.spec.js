@@ -29,6 +29,13 @@ rt.run('no-filter-is-deleted', no_filter_is_deleted, {
                 voc_nds: 1,
             })
         `},
+        { code: `
+            add_vocabularies ({}, {
+                voc_nds: {
+                    filter: 'uuid IN (SELECT uuid_voc FROM voc WHERE is_deleted = 0::BIT AND is_actual = 1)'
+                },
+            })
+        `},
     ],
     invalid: [
         {
