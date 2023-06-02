@@ -31,7 +31,10 @@ module.exports = {
                     for (let col of i.value.elements || []) {
                         for (let p of col.properties || []) {
                             let w = get_literal (p, 'width')
-                            if (!w) continue
+                            let f = get_literal (p, 'formatter')
+                            let c = get_literal (p, 'class')
+                            let is_width = w || /^_dt/.test (f) || /^_ts/.test (f) || c
+                            if (!is_width) continue
                             if (/^\d+$/.test (w)) proportions.push (w)
                             if (/%$/.test (w)) percents.push (w)
                             list.push (w)

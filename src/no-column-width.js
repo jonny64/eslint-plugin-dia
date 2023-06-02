@@ -14,6 +14,13 @@ module.exports = {
             return i.value.value
         }
 
+        const get_func_name = (i, key) => {
+            if (!i.key) return null
+            if (i.key && i.key.name !== key) return null
+            if (!i.value) return null
+            return i.value.name
+        }
+
         return {
             CallExpression (node) {
                 if (node.callee.property && node.callee.property.name != 'draw_table') return
@@ -35,6 +42,11 @@ module.exports = {
                         if (col.type !== 'ObjectExpression') continue
                         let is_ok = 0
                         for (let p of col.properties || []) {
+                            let formatter = get_func_name (p, 'formatter')
+                            if (formatter) {
+                                is_ok = /^_(dt|ts)/.test (formatter)
+                                break
+                            }
                             if (get_literal (p, 'width')) {
                                 is_ok = 1
                                 break

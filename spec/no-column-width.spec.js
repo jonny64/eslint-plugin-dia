@@ -77,6 +77,69 @@ rt.run('no-column-width', no_column_width, {
                         ]
                     })
             `},
+            {
+                code: `
+                    $el.draw_table ({
+                        columns: [
+                            {
+                                field: '_uuid',
+                                hideInColumnTitleRow: true,
+                                class: Slick.CheckboxSelectColumn,
+                                off: +data.is_deleted,
+                            },
+                            {
+                                field: 'id_voc_md_status',
+                                name: 'Статус',
+                                width: '10%',
+                                sortable: true,
+                                filter: {type: 'checkboxes', title: '[поиск...]', op: 'is'},
+                                voc: data.voc_md_status,
+                            },                        ]
+                    })
+                `
+            },
+            {
+                code: `
+                    $el.draw_table ({
+                        columns: [
+                            {
+                                field: 'id_voc_md_status',
+                                name: 'Статус',
+                                width: '10%',
+                                sortable: true,
+                                filter: {type: 'checkboxes', title: '[поиск...]', op: 'is'},
+                                voc: data.voc_md_status,
+                            },
+                            {
+                                field: 'dt',
+                                name: 'Дата',
+                                formatter: _dt,
+                            },
+                        ]
+                    })
+                `
+            },
+            {
+                code: `
+                    $el.draw_table ({
+                        columns: [
+                            {
+                                field: 'id_voc_md_status',
+                                name: 'Статус',
+                                width: '10%',
+                                sortable: true,
+                                filter: {type: 'checkboxes', title: '[поиск...]', op: 'is'},
+                                voc: data.voc_md_status,
+                            },
+                            {
+                                field: 'ts',
+                                name: 'Дата с временем',
+                                formatter: _tss,
+                            },
+                        ]
+                    })
+                `
+            },
     ],
     invalid: [
         {
@@ -120,6 +183,26 @@ rt.run('no-column-width', no_column_width, {
                 })
             `,
             errors: [{ messageId: 'no_column_width' }],
+        },
+        {
+            code: `
+                $el.draw_table ({
+                    columns: [
+                        {
+                            field: 'id_voc_md_status',
+                            name: 'Статус',
+                            sortable: true,
+                            filter: {type: 'checkboxes', title: '[поиск...]', op: 'is'},
+                            voc: data.voc_md_status,
+                        },
+                        {
+                            field: 'ts',
+                            name: 'Дата с временем',
+                            formatter: _tss,
+                        },
+                    ]
+                })
+            `
         },
     ]
 })
