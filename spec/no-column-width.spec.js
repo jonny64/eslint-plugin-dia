@@ -202,7 +202,8 @@ rt.run('no-column-width', no_column_width, {
                         },
                     ]
                 })
-            `
+            `,
+            errors: [{ messageId: 'no_column_width' }],
         },
     ]
 })
