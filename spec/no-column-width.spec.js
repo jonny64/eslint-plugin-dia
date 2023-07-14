@@ -140,6 +140,28 @@ rt.run('no-column-width', no_column_width, {
                     })
                 `
             },
+            {
+                code: `
+                    $el.draw_table({
+                        columns: [
+                            {
+                                field: "total",
+                                name: "Сумма",
+                                formatter: _decimal,
+                                width: '10%',
+                                filter: {type: 'numeric'},
+                            },
+                            {
+                                field: 'reason',
+                                name: 'Основание',
+                                filter: { type: 'text', title: '[поиск...]' },
+                                width: '15%',
+                            }
+                        ],
+                    })
+
+                `
+            },
     ],
     invalid: [
         {

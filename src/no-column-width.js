@@ -42,15 +42,18 @@ module.exports = {
                         if (col.type !== 'ObjectExpression') continue
                         let is_ok = 0
                         for (let p of col.properties || []) {
+
                             let formatter = get_func_name (p, 'formatter')
                             if (formatter) {
                                 is_ok = /^_(dt|ts)/.test (formatter)
-                                break
+                                if (is_ok) break
                             }
+
                             if (get_literal (p, 'width')) {
                                 is_ok = 1
                                 break
                             }
+
                             let has_class = p.key && p.key.name === 'class' && p.value
                             if (has_class) {
                                 is_ok = 1
