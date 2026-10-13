@@ -6,5 +6,6 @@
 | no-column-width  | draw_table.columns.width is required for each column
 | no-mixed-column-width  | draw_table.columns.width mixed unit are not allowed
 | no-db-select-hash-bool-misuse | db.select_hash and object-returning db.get results must be checked by a field, not by truthiness
+| no-db-select-hash-optional-chaining | optional access on db.select_hash and object-returning db.get results is unnecessary
 
 see https://astexplorer.net for node tree
