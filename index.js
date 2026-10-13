@@ -5,5 +5,6 @@ module.exports = {
         'no-mixed-column-width': require('./src/no-mixed-column-width'),
         'no-column-width': require('./src/no-column-width'),
         'no-commented-out-code': require('./src/no-commented-out-code'),
+        'no-db-select-hash-bool-misuse': require('./src/no-db-select-hash-bool-misuse'),
     }
 }
