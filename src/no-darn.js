@@ -1,7 +1,7 @@
 module.exports = {
     meta: {
         messages: {
-            no_darn: 'darn() is not allowed; save the error to DB fields via fork on action:abort',
+            no_darn: 'Using `darn` in production is prohibited.',
         },
     },
     create(context) {
