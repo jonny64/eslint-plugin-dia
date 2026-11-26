@@ -7,5 +7,6 @@
 | no-mixed-column-width  | draw_table.columns.width mixed unit are not allowed
 | no-db-select-hash-bool-misuse | db.select_hash and object-returning db.get results must be checked by a field, not by truthiness
 | no-db-select-hash-optional-chaining | optional access on db.select_hash and object-returning db.get results is unnecessary
+| no-darn | darn() is not allowed; save the error to DB fields via fork on action:abort
 
 see https://astexplorer.net for node tree

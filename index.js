@@ -7,5 +7,6 @@ module.exports = {
         'no-commented-out-code': require('./src/no-commented-out-code'),
         'no-db-select-hash-bool-misuse': require('./src/no-db-select-hash-bool-misuse'),
         'no-db-select-hash-optional-chaining': require('./src/no-db-select-hash-optional-chaining'),
+        'no-darn': require('./src/no-darn'),
     }
 }
